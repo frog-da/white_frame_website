@@ -3,5 +3,33 @@ h2,
 h3,
 h4,
 h5 {
-  font-style: italic;
+  font-family: $brand-font;
+  color: $brand-white;
+  margin: 0;
+}
+
+a {
+  font-family: $brand-font;
+  color: $brand-white;
+  font-weight: bold;
+  font-size: 18;
+  text-decoration: none;
+}
+
+p {
+  font-family: $brand-font;
+  color: $brand-white;
+  margin: 0;
+}
+
+ul {
+  color: $brand-white;
+  list-style-type: none;
+}
+
+.body2 {
+  font-family: $brand-font;
+  color: $brand-white;
+  font-weight: regular;
+  font-size: 24;
 }
