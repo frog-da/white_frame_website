@@ -3,42 +3,42 @@ import './home.scss';
 
 export default function Home() {
   return (
-    <body className='home_page'>
+    <div className='home_page'>
         <header>
             <nav className='nav'>
                 <ul className='menu-nav'>
-                <li className='menu-nav__item  active'>
-                    <a href="/home">
-                    Главная
-                    </a>
-                </li>
-                <li className='menu-nav__item'>
-                    <a href="/cases">
-                    Кейсы
-                    </a>
-                </li>
-                <li className='menu-nav__item'>
-                    <a href="/services">
-                    Услуги
-                    </a>
-                </li>
+                    <li className='menu-nav__item  active'>
+                        <a href="/home">
+                            Главная
+                        </a>
+                    </li>
+                    <li className='menu-nav__item'>
+                        <a href="/cases">
+                            Кейсы
+                        </a>
+                    </li>
+                    <li className='menu-nav__item'>
+                        <a href="/services">
+                            Услуги
+                        </a>
+                    </li>
                 </ul>
                 <ul className='menu-nav'>
-                <li className='menu-nav__item'>
-                    <a href="/contacts">
-                    Контакты
-                    </a>
-                </li>
-                <li className='menu-nav__item'>
-                    <a href="/vacancies">
-                    Вакансии
-                    </a>
-                </li>
-                <li className='menu-nav__item'>
-                    <a href="/news">
-                    Новости
-                    </a>
-                </li>
+                    <li className='menu-nav__item'>
+                        <a href="/contacts">
+                            Контакты
+                        </a>
+                    </li>
+                    <li className='menu-nav__item'>
+                        <a href="/vacancies">
+                            Вакансии
+                        </a>
+                    </li>
+                    <li className='menu-nav__item'>
+                        <a href="/news">
+                            Новости
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -71,7 +71,6 @@ export default function Home() {
                 </div>
             </footer>
         </main>
-    </body>
+    </div>
   );
 }
-
