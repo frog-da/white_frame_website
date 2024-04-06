@@ -1,8 +1,53 @@
 @import 'settings/settings', 'elements/elements';
 
 .home_page {
-    display: flex;
-    background-color: $brand-gray;
-    flex-direction: column;
+  
+  .header{
+    @include grid;
+    .logo {
+      width: 220;
+      height: 48;
+    }
+    .nav {
+      grid-column: 5 / 13; /* Menu-nav spans from 5th to 12th column */
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      
+      .menu-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        padding-inline-start: 0px;
+        &__item {
+          
+          &.active {
+            font-weight: bold;
+          }
+        }
+  
+      }
+    }
+  }
 
+  
+  .main {
+    .info {
+      @include grid;
+
+      &__h1 {
+        display: flex;
+        grid-column: 1 / 8;
+      }
+
+      &__body {
+        display: flex;
+        grid-column: 1 / -1;
+        padding-inline-start: 0px;
+        gap: 30px;
+      }
+
+    }
+  }
 }

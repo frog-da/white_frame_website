@@ -4,7 +4,11 @@ import './home.scss';
 export default function Home() {
   return (
     <div className='home_page'>
-        <header>
+
+        <header className='header'>
+            <embed className='logo' src="/vectors/logo.svg" width="220" height="48"/>
+        
+
             <nav className='nav'>
                 <ul className='menu-nav'>
                     <li className='menu-nav__item  active'>
@@ -42,14 +46,14 @@ export default function Home() {
                 </ul>
             </nav>
         </header>
-        <main>
-            <section>
-                <h1>Цифровые решения для бизнеса и государства</h1>
-                <ul className='body2'>
-                    <li>Проектируем</li>
-                    <li>Разрабатываем</li>
-                    <li>Внедряем</li>
-                    <li>Сопровождаем</li>
+        <main className='main'>
+            <section className='info'>
+                <h1 className='info__h1'>Цифровые решения для бизнеса и государства</h1>
+                <ul className='info__body'>
+                    <li>проектируем</li>
+                    <li>разрабатываем</li>
+                    <li>внедряем</li>
+                    <li>сопровождаем</li>
                 </ul>
             </section>
             <section>

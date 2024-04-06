@@ -1,0 +1,15 @@
+@import './variables';
+
+@mixin grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12-column grid */
+    column-gap: 30px;
+    padding: 0 120px; /* Default padding for tablet, desktop, widescreen, fullhd */
+    @media screen and (max-width: $tablet) {
+      padding: 0 20px; /* Padding for tablet */
+    }
+  
+    @media screen and (max-width: 480px) {
+      padding: 0; /* No padding for phone */
+    }
+}
