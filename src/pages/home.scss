@@ -1,12 +1,41 @@
 @import 'settings/settings', 'elements/elements';
 
 .home_page {
-  
+  display: inline-grid;
+  gap: 6rem;
   .header{
     @include grid;
+    height: 100px;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    transition: background-color 0.5s ease;
+    &--visible {
+      top: 0; /* Show the header */
+       /* Add smooth transition effect */
+      background-color: rgba($brand-black, 0.8);
+      transition: top 0.1s;
+      position: fixed;
+  
+    }
+  
+    &--hidden {
+      top: -100px; /* Hide the header */
+       /* Add smooth transition effect */
+      background-color: rgba($brand-black, 0.8);
+      transition: top 0.1s;
+      position: fixed;
+    }
+    
+
+    
     .logo {
-      width: 220;
-      height: 48;
+      grid-column: 1 / 5;
+      width: 220px; /* Specify width */
+      height: 100%; /* Take up full height of the header */
+      display: flex; /* Use flexbox */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
     }
     .nav {
       grid-column: 5 / 13; /* Menu-nav spans from 5th to 12th column */
@@ -21,10 +50,34 @@
         gap: 30px;
         padding-inline-start: 0px;
         &__item {
+          /* Define styles for the link */
+        a {
+          text-decoration: none; /* Remove default underline */
+          position: relative; /* Position relative to create space for the underline */
+        }
+
+        /* Define styles for the underline */
+          a::after {
+            content: ''; /* Create a pseudo-element */
+            position: absolute; /* Position the underline */
+            bottom: -3px; /* Align the underline to the bottom of the link */
+            left: 0; /* Align the underline to the start of the link */
+            width: 100%; /* Make the underline cover the entire width of the link */
+            height: 0; /* Set initial height to 0 */
+            background-color: $brand-white; /* Set color of the underline */
           
-          &.active {
-            font-weight: bold;
           }
+
+          /* Define hover styles to increase height of underline */
+          a:hover::after {
+            height: 3px; /* Increase height of underline on hover */
+          }
+
+        
+          &.active > a {
+            color: $brand-green;
+          }
+
         }
   
       }
@@ -33,6 +86,9 @@
 
   
   .main {
+    display: inline-grid;
+    margin-top: 10rem;
+    gap: 10rem; 
     .info {
       @include grid;
 
@@ -46,8 +102,60 @@
         grid-column: 1 / -1;
         padding-inline-start: 0px;
         gap: 30px;
-      }
 
+      }
+    }
+
+    .tiles {
+      @include grid;
+      .column1,
+      .column2 {
+        display: grid;
+        grid-template-rows: repeat(2, 100px);
+        /* Adjust grid-column as needed */
+        gap: 30px;
+      }
+      .column1 {
+        grid-column: 1 / 6;
+      }
+      .column2 {
+        grid-column: 7 / 12;
+      }
+      
+      .column__item {
+        display: flex;
+        align-items: center; /* Center vertically */
+        background-color: rgba($brand-white, 0.1);
+        border-left: 3px solid $brand-green;
+      }
+      
+      .column__item__p {
+        margin-left: 7%;
+        margin-right: 20%;
+      }     
+    }
+    .options {
+      @include grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 15px;
+      &__item {
+        display: grid;
+        .arrow {
+          align-self: flex-end;
+          margin-bottom: 0.8rem;
+        }
+        .button {
+          align-self: flex-end;
+          background-color: $brand-gray;
+          border: 2px solid $brand-white;
+          color: $brand-white;
+          &:hover {
+            color: $brand-green;
+            border: 2px solid $brand-green;
+          }
+        }
+      }
     }
   }
 }
