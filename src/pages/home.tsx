@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.scss';
 import Header from '../components/header';
+import Swiper from '../components/swiper';
 
 export default function Home() {
   return (
@@ -71,8 +72,43 @@ export default function Home() {
                     <button className='button' type='button'>Свяжитесь с нами</button>
                 </div>
             </section>
+            
+            <section className="projects">
+                <div className="vectors">
+                    <embed className='folder_icon' src="/vectors/folder_icon.svg" width="40" height="40"/>
+                    {/* <div className="progress_container">
+                        <div className="progress-bar" id="myBar"></div>
+                    </div> */}
+                    
+                </div>
+                <Swiper />
+            </section>
            
             <footer>
+                <div>
+                    <h3>Свяжитесь с нами</h3>
+                    <p>+7 843 123 45 67</p>
+                    <p>info@whiteframe.ru</p>
+                </div>
+                <div>
+                    <p>© 2021 – White Frame, Все права защищены.</p>
+                </div>
+                <div>
+                    <h3>Свяжитесь с нами</h3>
+                    <p>+7 843 123 45 67</p>
+                    <p>info@whiteframe.ru</p>
+                </div>
+                <div>
+                    <p>© 2021 – White Frame, Все права защищены.</p>
+                </div>
+                <div>
+                    <h3>Свяжитесь с нами</h3>
+                    <p>+7 843 123 45 67</p>
+                    <p>info@whiteframe.ru</p>
+                </div>
+                <div>
+                    <p>© 2021 – White Frame, Все права защищены.</p>
+                </div>
                 <div>
                     <h3>Свяжитесь с нами</h3>
                     <p>+7 843 123 45 67</p>
