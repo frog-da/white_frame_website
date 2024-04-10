@@ -10,6 +10,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'></link>
+      </head>
       <body>{children}</body>
     </html>
   )
