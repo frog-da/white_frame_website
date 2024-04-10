@@ -15,11 +15,11 @@ export default () => (
         slidesPerView={3.3}
         spaceBetween={30}
         freeMode={true}
-        mousewheel={{
-            releaseOnEdges: true,
-            sensitivity: 1,
-            eventsTarget: '.slider .swiper-wrapper',
-        }}
+        // mousewheel={{
+        //     releaseOnEdges: true,
+        //     sensitivity: 1,
+        //     eventsTarget: '.slider .swiper-wrapper',
+        // }}
     >
         <SwiperSlide>
             <div className="projects__items__item">
