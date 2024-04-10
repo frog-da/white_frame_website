@@ -1,5 +1,6 @@
+"use client"
 import React, { useEffect, useState } from 'react';
-import '../pages/home.scss';
+import '@/app/home/page.scss';
 
 export default function Header() {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -13,8 +14,9 @@ export default function Header() {
         setStartPosition((currentScrollPos < 100 && prevScrollPos <= currentScrollPos) || currentScrollPos == 0);
         setPrevScrollPos(currentScrollPos);
       };
-  
-      window.addEventListener('scroll', handleScroll);
+      if (handleScroll) {
+        window.addEventListener('scroll', handleScroll);
+      }
   
       return () => {
         window.removeEventListener('scroll', handleScroll);

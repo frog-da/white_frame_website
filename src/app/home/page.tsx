@@ -1,7 +1,8 @@
+"use client"
 import React from 'react';
-import './home.scss';
-import Header from '../components/header';
-import Swiper from '../components/swiper';
+import './page.scss';
+import Header from '@/components/header';
+import Swiper from '@/components/swiper';
 
 export default function Home() {
   return (
