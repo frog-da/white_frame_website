@@ -15,12 +15,12 @@ export default () => (
         slidesPerView={3.3}
         spaceBetween={30}
         freeMode={true}
-        // mousewheel={{
-        //     releaseOnEdges: true,
-        //     sensitivity: 1,
-        //     eventsTarget: '.slider .swiper-wrapper',
-        // }}
+        mousewheel={{
+            releaseOnEdges: true,
+            // eventsTarget: '.slider .swiper-wrapper',
+        }}
     >
+  
         <SwiperSlide>
             <div className="projects__items__item">
                 <img className="projects__items__item__image" src="/images/project1.jpg"/>
@@ -69,6 +69,7 @@ export default () => (
                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
             </div>
         </SwiperSlide>
+
 
     </Swiper>
 );

@@ -193,16 +193,40 @@
     }
 
     .projects {
+      display: inline-grid;
+      gap: 30px;
+      .vectors {
+        @include grid;
+
+      }
       .swiper {
-    
         display: grid;
-        
         .swiper-wrapper {
           min-width: 0;
-          
+          .swiper-slide:first-child {
+            margin-left: 6rem;
+          }
+          .swiper-slide:last-child {
+            margin-right: 6rem;
+          }
         }
       }
-      
+    }
+    
+    
+    .text {
+      @include grid;
+
+      &__first {
+        display: flex;
+        grid-column: 1 / 5;
+      }
+
+      &__second {
+        display: flex;
+        grid-column: 6 / 12;
+      }
+
     }
 
 
