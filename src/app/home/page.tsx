@@ -3,6 +3,8 @@ import React from 'react';
 import './page.scss';
 import Header from '@/components/header';
 import Swiper from '@/components/swiper';
+import Nav from '@/components/nav';
+import Gallery from '@/components/gallery';
 
 export default function Home() {
   return (
@@ -103,12 +105,109 @@ export default function Home() {
                 </div>
             </section>
 
+            <section className="gallery">
+                <Gallery />
+            </section>
+
             <section className="news">
                 <div className="vectors">
                     <embed className='news_icon' src="/vectors/news_icon.svg" width="40" height="40"/>
                 </div>
+                <div className="news__first">
+                    <div className="news__first__date">
+                        <p className="news__date__p">
+                            10 октября 2021
+                        </p>
+                    </div>
+                    <div className="news__first__header">
+                        <p className="news__header__p">
+                            Заголовок новости в одну строку <br />
+                        </p>
+                    </div>
+                    <div className="news__first__text">
+                        <p className="news__text__p">
+                            С 2005 года White Frame тесно сотрудничает с клиентами, чтобы воплотить их идеи в жизнь в виде мощного программного обеспечения. 
+                        </p>
+                    </div>
+                </div>
+
+                <div className="news__second">
+                    <div className="news__second__date">
+                        <p className="news__date__p">
+                            10 октября 2021
+                        </p>
+                    </div>
+                    <div className="news__second__header">
+                        <p className="news__header__accent__p">
+                            Заголовок новости в две строки, потому что так тоже бывает
+                        </p>
+                    </div>
+                    <div className="news__second__text">
+                        <p className="news__text__p">
+                            С 2005 года White Frame тесно сотрудничает с клиентами, чтобы воплотить их идеи в жизнь в виде мощного программного обеспечения. 
+                        </p>
+                    </div>
+                </div>
+
+                <div className="news__third">
+                    <div className="news__third__date">
+                        <p className="news__date__p">
+                            10 октября 2021
+                        </p>
+                    </div>
+                    <div className="news__third__header">
+                        <p className="news__header__p">
+                            Заголовок новости в одну строку<br />
+                        </p>
+                    </div>
+                    <div className="news__third__text">
+                        <p className="news__text__p">
+                            С 2005 года White Frame тесно сотрудничает с клиентами, чтобы воплотить их идеи в жизнь в виде мощного программного обеспечения. 
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="footer">
+                
+                <div className="footer__top">
+                    <div className="footer__top__square"></div>
+                    <Nav />
+                    <div className="footer__top__social">
+                        <a href="" className="footer__link">
+                            <embed className='footer__icon' src="/vectors/Ig.svg" width="24" height="24"/>
+                        </a>
+                        <a href="" className="footer__link">
+                            <embed className='footer__icon' src="/vectors/Vk.svg" width="24" height="24"/>
+                        </a>
+                        <a href="" className="footer__link">
+                            <embed className='footer__icon' src="/vectors/Fb.svg" width="24" height="24"/>
+                        </a>
+                        <a href="" className="footer__link">
+                            <embed className='footer__icon' src="/vectors/Gplay.svg" width="24" height="24"/>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div className="footer__buttom">
+                    <div className="footer__buttom__text">
+                        <p className="footer__text__p">
+                            +7 843 123 45 67
+                        </p>
+                        <p className="footer__text__p">
+                            info@whiteframe.ru
+                        </p> 
+                    </div>
+                    <div className="footer__buttom__rights">
+                        <p className="footer__rights__p">
+                            © 2021 – White Frame, Все права защищены.
+                        </p>
+                    </div>
+                </div>
             </section>
            
+
 
         </main>
     </div>

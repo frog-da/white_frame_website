@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import '@/app/home/page.scss';
+import Nav from '@/components/nav';
 
 export default function Header() {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -27,42 +28,7 @@ export default function Header() {
     <header className={visible ? `header ${startPosition ? 'header--start' : 'header--visible'}` : 'header header--hidden'}>
 
       <embed className='logo' src="/vectors/logo.svg" width="220" height="48"/>
-      <nav className='nav'>
-            <ul className='menu-nav'>
-                <li className='menu-nav__item  active'>
-                    <a href="/home">
-                        Главная
-                    </a>
-                </li>
-                <li className='menu-nav__item'>
-                    <a href="/cases">
-                        Кейсы
-                    </a>
-                </li>
-                <li className='menu-nav__item'>
-                    <a href="/services">
-                        Услуги
-                    </a>
-                </li>
-            </ul>
-            <ul className='menu-nav'>
-                <li className='menu-nav__item'>
-                    <a href="/contacts">
-                        Контакты
-                    </a>
-                </li>
-                <li className='menu-nav__item'>
-                    <a href="/vacancies">
-                        Вакансии
-                    </a>
-                </li>
-                <li className='menu-nav__item'>
-                    <a href="/news">
-                        Новости
-                    </a>
-                </li>
-            </ul>
-        </nav>
+      <Nav />
     </header>
   );
 }

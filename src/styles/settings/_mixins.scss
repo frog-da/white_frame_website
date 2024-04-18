@@ -13,3 +13,57 @@
       padding: 0; /* No padding for phone */
     }
 }
+
+@mixin menu-nav {
+    .menu-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding-inline-start: 0px;
+
+      &__item {
+
+        /* Define styles for the link */
+        a {
+          text-decoration: none;
+          /* Remove default underline */
+          position: relative;
+          /* Position relative to create space for the underline */
+        }
+
+        /* Define styles for the underline */
+        a::after {
+          content: '';
+          /* Create a pseudo-element */
+          position: absolute;
+          /* Position the underline */
+          bottom: -3px;
+          /* Align the underline to the bottom of the link */
+          left: 0;
+          /* Align the underline to the start of the link */
+          width: 100%;
+          /* Make the underline cover the entire width of the link */
+          height: 0;
+          /* Set initial height to 0 */
+          background-color: $brand-white;
+          /* Set color of the underline */
+
+        }
+
+        /* Define hover styles to increase height of underline */
+        a:hover::after {
+          height: 3px;
+          /* Increase height of underline on hover */
+        }
+
+
+        &.active>a {
+          color: $brand-green;
+        }
+
+      }
+
+    }
+
+}
