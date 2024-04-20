@@ -26,7 +26,7 @@ const Gallery = () => {
       <div className="gallery__current-preview">
         <img src={images[currentImageIndex]} loading="lazy" />
       </div>
-      <div className="content">
+      <div className="gallery__content">
         <div className="gallery__navigation">
           <div className="gallery__previews">
             {images.map((image, index) => (
@@ -39,13 +39,19 @@ const Gallery = () => {
               />
             ))}
           </div>
-          <div className="gallery__btn">
-            <img
-              src="/vectors/arrow.svg"
-              className="next-button"
-              onClick={handleNextImage}
-            />
+          <div className="gallery__container">
+            <div className="gallery__btn">
+                <img
+                src="/vectors/arrow.svg"
+                className="next-button"
+                onClick={handleNextImage}
+                />
+            </div>
+            <div className="gallery__logo">
+                <embed src="/vectors/logo.svg" />
+            </div>
           </div>
+          
         </div>
       </div>
     </section>
