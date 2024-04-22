@@ -12,6 +12,7 @@ export default function Home() {
         <Header />
         <main className='main'>
             <section className='info'>
+                <img src="/background/pixels-1.svg" className="pixels-pixels1" />
                 <h1 className='info__h1'>Цифровые решения для бизнеса и государства</h1>
                 <ul className='info__body'>
                     <li>проектируем</li>
@@ -24,6 +25,7 @@ export default function Home() {
                 </ul>
             </section>
             <section className='tiles'>
+                <img src="/background/pixels-2.svg" className="pixels-pixels2" />
                 <div className='column1'>
                     <div className='column__item'>
                         <p className='column__item__p'>Заказная разработка программного обеспечения</p>
@@ -88,6 +90,7 @@ export default function Home() {
             </section>
 
             <section className="text">
+                <img src="/background/pixels-3.svg" className="pixels-pixels3" />
                 <div className="text__first">
                     <h3 className="text__first__h3">
                         Мы много лет работаем в области IT-разработки, самосовершенствуемся и двигаемся вперёд. <br /><br />

@@ -10,7 +10,8 @@
     }
   
     @media screen and (max-width: 480px) {
-      padding: 0; /* No padding for phone */
+      padding: 0 10px; /* No padding for phone */
+      grid-template-columns: repeat(1, 1fr);
     }
 }
 

@@ -79,6 +79,12 @@
         gap: 30px;
 
       }
+
+      .pixels-pixels1 {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
     }
 
     .tiles {
@@ -111,6 +117,12 @@
       .column__item__p {
         margin-left: 7%;
         margin-right: 20%;
+      }
+
+      .pixels-pixels2 {
+        position: absolute;
+        top: 350px;
+        right: 130px;
       }
     }
 
@@ -181,6 +193,11 @@
         grid-column: 6 / 12;
       }
 
+      .pixels-pixels3 {
+        position: absolute;
+        top: 650px;
+        right: -300px;
+      }
     }
 
     .gallery {
