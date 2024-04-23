@@ -1,168 +1,115 @@
 "use client"
-// import React from 'react';
-// import {Navigation, Mousewheel} from 'swiper/modules';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-
-// import 'swiper/css';
-
-// import 'swiper/css/mousewheel';
-
-
-// export default () => (
-
-    //     <Swiper
-    //         modules={[Navigation, Mousewheel]}
-    //         slidesPerView={3.3}
-    //         spaceBetween={30}
-    //         freeMode={true}
-    //         mousewheel={{
-    //             releaseOnEdges: true,
-    //             // eventsTarget: '.slider .swiper-wrapper',
-    //         }}
-    //     >
-    
-    //         <SwiperSlide>
-    //             <div className="projects__items__item">
-    //                 <img className="projects__items__item__image" src="/images/project1.jpg"/>
-    //                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-    //             </div>
-    //         </SwiperSlide>
-    //         <SwiperSlide>
-    //             <div className="projects__items__item">
-    //                 <img className="projects__items__item__image" src="/images/project2.jpg"/>
-    //                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-    //             </div>
-    //         </SwiperSlide>
-    //         <SwiperSlide>
-    //             <div className="projects__items__item">
-    //                 <img className="projects__items__item__image" src="/images/project3.jpg" />
-    //                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-    //             </div>
-    //         </SwiperSlide>
-    //         <SwiperSlide>
-    //             <div className="projects__items__item">
-    //                 <img className="projects__items__item__image" src="/images/project4.jpg" />
-    //                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-    //             </div>
-    //         </SwiperSlide>
-    //         <SwiperSlide>
-    //             <div className="projects__items__item">
-    //                 <img className="projects__items__item__image" src="/images/project1.jpg"/>
-    //                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-    //             </div>
-    //         </SwiperSlide>
-    //         <SwiperSlide>
-    //             <div className="projects__items__item">
-    //                 <img className="projects__items__item__image" src="/images/project2.jpg"/>
-    //                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-    //             </div>
-    //         </SwiperSlide>
-    //         <SwiperSlide>
-    //             <div className="projects__items__item">
-    //                 <img className="projects__items__item__image" src="/images/project3.jpg" />
-    //                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-    //             </div>
-    //         </SwiperSlide>
-    //         <SwiperSlide>
-    //             <div className="projects__items__item">
-    //                 <img className="projects__items__item__image" src="/images/project4.jpg" />
-    //                 <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-    //             </div>
-    //         </SwiperSlide>
-
-
-    //     </Swiper>
-// );
-
-// ScrollableSlider.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Mousewheel } from 'swiper/modules';
+import SwiperCore, { Navigation,  Scrollbar} from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/mousewheel';
+import 'swiper/css/scrollbar';  
+import { log } from 'console';
 
 
 const ScrollableSlider = () => {
-  const [scrollPercentage, setScrollPercentage] = useState(0);
-  useEffect(() => {
-    const handleScroll = () => {
+    const swiperRef = useRef(null);
+    const handleWheel = () => {
         const block = document.getElementById('projects');
-        if (block) {
-          const scrollTop = block.scrollTop;
-          const scrollHeight = block.scrollHeight - block.clientHeight;
-          const percentage = (scrollTop / scrollHeight) * 100;
+        const content = document.getElementById('content');
+        const topOffset = block.getBoundingClientRect().top;
+        if (topOffset < 0) {
+            const swiperPos = Math.min(Math.abs(topOffset) / (block.clientHeight - 2 * content.clientHeight), 1);
+            console.log(swiperPos)
+            swiperRef.current.swiper.setProgress(swiperPos, 10);
+        } else {
+            swiperRef.current.swiper.setProgress(0, 10);
         }
+        
       };
- 
-  }, []);
-
+      document.onwheel = handleWheel;
 
   return (
-    <div className="projects">
-      <div className="swiper">
-        <Swiper
-          modules={[Navigation, Mousewheel]}
-          slidesPerView={3.3}
-          spaceBetween={30}
-          freeMode={true}
-          mousewheel={{
-            releaseOnEdges: true,
-          }}
-          
-        >
-            <SwiperSlide>
-                <div className="projects__items__item">
-                    <img className="projects__items__item__image" src="/images/project1.jpg"/>
-                    <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+   
+    <div className="content" id="content">
+        <div className="vectors">
+            <embed className='folder_icon' src="/vectors/folder_icon.svg" width="40" height="40"/>
+            <div className="progress_container">
+                <div className="swiper-scrollbar">
+                    <div className="swiper-scrollbar-drag"></div>
                 </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="projects__items__item">
-                    <img className="projects__items__item__image" src="/images/project2.jpg"/>
-                    <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="projects__items__item">
-                    <img className="projects__items__item__image" src="/images/project3.jpg" />
-                    <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="projects__items__item">
-                    <img className="projects__items__item__image" src="/images/project4.jpg" />
-                    <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="projects__items__item">
-                    <img className="projects__items__item__image" src="/images/project1.jpg"/>
-                    <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="projects__items__item">
-                    <img className="projects__items__item__image" src="/images/project2.jpg"/>
-                    <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="projects__items__item">
-                    <img className="projects__items__item__image" src="/images/project3.jpg" />
-                    <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="projects__items__item">
-                    <img className="projects__items__item__image" src="/images/project4.jpg" />
-                    <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
-                </div>
-            </SwiperSlide>
-        </Swiper>
-      </div>
+            </div>
+            
+        </div>
+
+        <div className="projects">
+            <div className="swiper">
+                <Swiper
+                    ref={swiperRef}
+                    modules={[Navigation, Scrollbar]}
+                    slidesPerView={'auto'}
+                    slidesOffsetAfter={95}
+                    slidesOffsetBefore={95}
+                    scrollbar={{ draggable: true,
+                    dragClass: 'swiper-scrollbar-drag',
+                    el: '.swiper-scrollbar',
+                    dragSize: 100 }}
+                    mousewheel={{
+                        enabled: false
+                    }}
+                >
+                    <SwiperSlide>
+                        <div className="projects__items__item">
+                            <img className="projects__items__item__image" src="/images/project1.jpg"/>
+                            <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="projects__items__item">
+                            <img className="projects__items__item__image" src="/images/project2.jpg"/>
+                            <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="projects__items__item">
+                            <img className="projects__items__item__image" src="/images/project3.jpg" />
+                            <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="projects__items__item">
+                            <img className="projects__items__item__image" src="/images/project4.jpg" />
+                            <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="projects__items__item">
+                            <img className="projects__items__item__image" src="/images/project1.jpg"/>
+                            <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="projects__items__item">
+                            <img className="projects__items__item__image" src="/images/project2.jpg"/>
+                            <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="projects__items__item">
+                            <img className="projects__items__item__image" src="/images/project3.jpg" />
+                            <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="projects__items__item">
+                            <img className="projects__items__item__image" src="/images/project4.jpg" />
+                            <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
+                        </div>
+                    </SwiperSlide>
+                    
+                </Swiper>
+            </div>
+        </div>
     </div>
+
   );
 };
 
