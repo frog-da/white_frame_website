@@ -5,14 +5,7 @@
     grid-template-columns: repeat(12, 1fr); /* 12-column grid */
     column-gap: 30px;
     padding: 0 120px; /* Default padding for tablet, desktop, widescreen, fullhd */
-    @media screen and (max-width: $tablet) {
-      padding: 0 20px; /* Padding for tablet */
-    }
-  
-    @media screen and (max-width: 480px) {
-      padding: 0 10px; /* No padding for phone */
-      grid-template-columns: repeat(1, 1fr);
-    }
+    
 }
 
 @mixin menu-nav {
@@ -31,6 +24,23 @@
           /* Remove default underline */
           position: relative;
           /* Position relative to create space for the underline */
+        }
+
+        &.active > a::after {
+          content: '';
+          /* Create a pseudo-element */
+          position: absolute;
+          /* Position the underline */
+          bottom: -3px;
+          /* Align the underline to the bottom of the link */
+          left: 0;
+          /* Align the underline to the start of the link */
+          width: 100%;
+          /* Make the underline cover the entire width of the link */
+          height: 3px;
+          /* Set initial height to 0 */
+          background-color: $brand-green;
+          /* Set color of the underline */
         }
 
         /* Define styles for the underline */

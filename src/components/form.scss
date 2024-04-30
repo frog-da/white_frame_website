@@ -1,0 +1,132 @@
+@import 'settings/settings', 'index', 'globals';  
+ .form {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100000;
+    background-color:  rgba($brand-black, 0.8); 
+    &__overlay {
+        width: 100%;
+        background-color: #00ffa3;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        transition: transform .35s;
+    }
+    &__wrapper {
+        width: 100%;
+        padding: 30px 15px;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+    }
+    &__close {
+        position: absolute;
+        right: 15px;
+        top: 30px;
+        background: 0 0;
+        border: none;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    &__title {
+        h3 {
+            color: $brand-black !important;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: .02em;
+            margin-bottom: 30px;
+        }
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &__inputs {
+        width: 100%;
+        max-width: 790px;
+        margin-right: 15px;
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    &__input {
+        position: relative;
+        width: 40% ;
+        height: 35px;
+        margin-right: 20px;
+    }
+    &__input:first-child {
+        margin-bottom: 20px;
+    }
+    input:focus, textarea:focus {
+        border: 1px solid #10bf80;
+        background: #10bf80;
+        color: #fff;
+        outline: none;
+        
+    }
+    input:focus::placeholder, textarea:focus::placeholder {
+        color: #fff;
+    }
+  
+    input {
+        padding: 10px 15px 13px;
+        font-size: 20px;
+        background: #00ffa3;
+        border: 1px solid #10bf80;
+        color: #4e4e4e;
+        
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    textarea {
+        height: 100%;
+        margin-right: 0;
+        margin-bottom: 0 !important;
+        padding: 10px 15px 13px;
+        font-size: 20px;
+        background: #00ffa3;
+        border: 1px solid #10bf80;
+        color: #4e4e4e;
+        width: 40%;
+        box-shadow: none;
+        border-radius: 0;
+        resize: none;
+    }
+    &__button {
+        margin-top: 40px;
+        button {
+            width: 250px;
+            background-color: #131516;
+            border: 2px solid #131516;
+            color: #00ffa3;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: .02em;
+            padding: 0 15px;
+            height: 60px;
+        }
+    }
+    &__button:hover {
+        background-color: transparent;
+        color: #131516;
+    }
+    &__icon {
+        margin-right: 63px;
+        padding-top: 63px;
+    }
+   
+ }
