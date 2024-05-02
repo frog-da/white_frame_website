@@ -7,8 +7,23 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/mousewheel';
 import 'swiper/css/scrollbar';  
-import { log } from 'console';
+import { getSlideTransformEl } from 'swiper/effect-utils';
 
+
+
+const makeAllSlidesGray = (event) => {
+    const slides = document.getElementsByClassName('swiper-slide');
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.add('swiper-slide--gray');
+    }
+}
+
+const makeAllSlidesColor = (event) => {
+    const slides = document.getElementsByClassName('swiper-slide');
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('swiper-slide--gray');
+    }
+}
 
 const ScrollableSlider = () => {
     const swiperRef = useRef(null);
@@ -17,8 +32,7 @@ const ScrollableSlider = () => {
         const content = document.getElementById('content');
         const topOffset = block.getBoundingClientRect().top;
         if (topOffset < 0) {
-            const swiperPos = Math.min(Math.abs(topOffset) / (block.clientHeight - 2 * content.clientHeight), 1);
-            console.log(swiperPos)
+            const swiperPos = Math.min(Math.abs(topOffset) / (block.clientHeight - 1.7 * content.clientHeight), 1);
             swiperRef.current.swiper.setProgress(swiperPos, 10);
         } else {
             swiperRef.current.swiper.setProgress(0, 10);
@@ -57,43 +71,43 @@ const ScrollableSlider = () => {
                     }}
                 >
                     <SwiperSlide>
-                        <div className="projects__items__item">
+                        <div className="projects__items__item" onMouseEnter={makeAllSlidesGray} onMouseLeave={makeAllSlidesColor}>
                             <img className="projects__items__item__image" src="/images/project1.jpg"/>
                             <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="projects__items__item">
+                        <div className="projects__items__item" onMouseEnter={makeAllSlidesGray} onMouseLeave={makeAllSlidesColor}>
                             <img className="projects__items__item__image" src="/images/project2.jpg"/>
                             <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="projects__items__item">
+                        <div className="projects__items__item" onMouseEnter={makeAllSlidesGray} onMouseLeave={makeAllSlidesColor}>
                             <img className="projects__items__item__image" src="/images/project3.jpg" />
                             <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="projects__items__item">
+                        <div className="projects__items__item" onMouseEnter={makeAllSlidesGray} onMouseLeave={makeAllSlidesColor}>
                             <img className="projects__items__item__image" src="/images/project4.jpg" />
                             <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="projects__items__item">
+                        <div className="projects__items__item" onMouseEnter={makeAllSlidesGray} onMouseLeave={makeAllSlidesColor}>
                             <img className="projects__items__item__image" src="/images/project1.jpg"/>
                             <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="projects__items__item">
+                        <div className="projects__items__item" onMouseEnter={makeAllSlidesGray} onMouseLeave={makeAllSlidesColor}>
                             <img className="projects__items__item__image" src="/images/project2.jpg"/>
                             <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="projects__items__item">
+                        <div className="projects__items__item" onMouseEnter={makeAllSlidesGray} onMouseLeave={makeAllSlidesColor}>
                             <img className="projects__items__item__image" src="/images/project3.jpg" />
                             <p className='projects__items__item__p'>Приложение учёта физической активности Meditate</p>
                         </div>

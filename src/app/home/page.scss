@@ -1,11 +1,18 @@
-@import 'settings/settings', 'index', 'globals';  
+@import 'settings/settings', 'index', 'globals';
 
 .home_page {
   display: inline-grid;
   gap: 6rem;
-  background-image: url('/background/pixels-1.svg');
+  background-image: url('/background/pixels-1.svg'), 
+                    url('/background/pixels-2.svg'), 
+                    url('/background/pixels-3.svg'),
+                    url('/background/pixels-4.svg'),
+                    url('/background/pixels-5.svg'),
+                    url('/background/pixels-6.svg'),
+                    url('/background/blob-1.webp'), 
+                    url('/background/blob-2.webp');
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: top right, top 14% left, top 69% left 35%, top 80% right, top 90% left, bottom left 60% ,top 4% left 30%, top 71% right;
 
   .header {
     @include grid;
@@ -18,8 +25,6 @@
 
     &--visible {
       top: 0;
-      /* Show the header */
-      /* Add smooth transition effect */
       background-color: rgba($brand-black, 0.8);
       transition: top 0.1s;
       position: fixed;
@@ -28,8 +33,6 @@
 
     &--hidden {
       top: -100px;
-      /* Hide the header */
-      /* Add smooth transition effect */
       background-color: rgba($brand-black, 0.8);
       transition: top 0.1s;
       position: fixed;
@@ -40,20 +43,14 @@
     .logo {
       grid-column: 1 / 5;
       width: 220px;
-      /* Specify width */
       height: 100%;
-      /* Take up full height of the header */
       display: flex;
-      /* Use flexbox */
       justify-content: center;
-      /* Center horizontally */
       align-items: center;
-      /* Center vertically */
     }
 
     .nav {
       grid-column: 5 / 13;
-      /* Menu-nav spans from 5th to 12th column */
       display: inline-flex;
       align-items: center;
       justify-content: space-between;
@@ -91,7 +88,6 @@
       .column2 {
         display: grid;
         grid-template-rows: repeat(2, 100px);
-        /* Adjust grid-column as needed */
         gap: 30px;
       }
 
@@ -106,7 +102,6 @@
       .column__item {
         display: flex;
         align-items: center;
-        /* Center vertically */
         background-color: rgba($brand-white, 0.1);
         border-left: 3px solid $brand-green;
       }
@@ -115,24 +110,21 @@
         margin-left: 7%;
         margin-right: 20%;
       }
-      &::after{
+
+      &::after {
         content: "";
 
         position: absolute;
-        bottom: 0; /* Adjust to increase the size */
-        left: 0; /* Adjust to increase the size */
-        width: 100%; /* Adjust to increase the size */
-        height: calc(100% + 80px); /* Adjust to increase the size */
-        background-image: url('/background/pixels-2.svg');
-        background-repeat: no-repeat;
-        background-position: bottom left;
-        
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% + 80px);
       }
-      
+
     }
 
     .options {
-      background-color:  rgba($brand-black, 0.2);
+      background-color: rgba($brand-black, 0.2);
 
       position: relative;
       @include grid;
@@ -143,20 +135,21 @@
       &::before {
         content: "";
         position: absolute;
-        top: -40px; /* Adjust to increase the size */
-        left: 0; /* Adjust to increase the size */
-        width: 100%; /* Adjust to increase the size */
-        height: 40px; /* Adjust to increase the size */
+        top: -40px;
+        left: 0;
+        width: 100%;
+        height: 40px;
         background-color: rgba($brand-black, 0.2);
         z-index: -1;
       }
+
       &::after {
         content: "";
         position: absolute;
-        top: 100%; /* Adjust to increase the size */
-        left: 0; /* Adjust to increase the size */
-        width: 100%; /* Adjust to increase the size */
-        height: 40px; /* Adjust to increase the size */
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 40px;
         background-color: rgba($brand-black, 0.2);
         z-index: -1;
       }
@@ -192,19 +185,21 @@
 
       .content {
         position: sticky;
-        top: 25%;
+        top: 15vh;
         height: fit-content;
-       
+
         .vectors {
-          @include grid; 
+          @include grid;
           margin-bottom: 60px;
           justify-content: center;
           align-items: center;
+
           .progress_container {
             display: flex;
             grid-column: 5 / -1;
+
             .swiper-scrollbar {
-              
+
               .swiper-scrollbar-drag {
                 position: absolute;
                 left: 0;
@@ -227,7 +222,7 @@
                 height: 2px;
                 background-color: #000aff;
               }
-              
+
               width: 100%;
               height: 24px;
               background-color: $brand-black;
@@ -235,45 +230,60 @@
               border-radius: var(--swiper-scrollbar-border-radius, 0);
             }
           }
-          
+
         }
+
         .projects {
           height: fit-content;
         }
+
         .swiper {
-     
           display: grid;
+
           .swiper-wrapper {
             min-width: 0;
-            
-            // overflow: visible;
-            // .swiper-slide:first-child {
-            //   margin-left: 6rem;
-            // }
-            // .swiper-slide:last-child {
-            //   margin-right: 10rem;
-            // }
           }
+
           .swiper-container {
             width: 100%;
             height: 100%;
-            
           }
 
           .swiper-slide {
             width: auto;
 
+            .projects__items__item__p {
+              display: flex;
+              width: 80%;
+            }
+
+            .projects__items__item__image {
+              filter: grayscale(0%);
+              transition: filter .35s;
+            }
+
+            &:hover {
+              .projects__items__item__image {
+                filter: grayscale(0%);
+              }
+
+              .projects__items__item__p {
+                color: $brand-blue;
+              }
+            }
+
+            &--gray {
+              .projects__items__item__image {
+                filter: grayscale(100%) blur(3px);
+                transition: filter .35s;
+              }
+            }
           }
         }
       }
-
-      // &__locked {
-      //   position: sticky;
-      //   top: 0;
-      // }
     }
-    
-    
+
+
     .text {
       @include grid;
 
@@ -286,27 +296,15 @@
         display: flex;
         grid-column: 6 / 12;
       }
-
-      // &::after > text::after{
-      //   content: '';
-      //   position: absolute;
-      //   bottom: 0%;
-      //   left: 0;
-      //   width: 100%;
-      //   height: 100%;
-      //   background-image: url('/background/pixels-3.svg');
-      //   background-repeat: no-repeat;
-      //   background-position: bottom center;
-      // }
-      
     }
 
     .gallery {
       display: flex;
       gap: 30px;
+
       &__current-preview {
-        width: 45rem; /* Adjust the size as needed */
-        height: 45rem; /* Adjust the size as needed */
+        width: 60rem;
+        height: 60rem;
         position: relative;
         z-index: 2;
         flex: none;
@@ -315,10 +313,11 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-      
+
         }
-        
+
       }
+
       &__content {
         display: flex;
       }
@@ -334,6 +333,7 @@
         align-items: flex-end;
         justify-content: flex-end;
         margin-left: 6rem;
+
         img {
           width: 40px;
           height: 40px;
@@ -345,7 +345,7 @@
         flex-direction: row;
         justify-content: flex-end;
       }
-    
+
       &__previews {
         width: 380px;
         height: 380px;
@@ -355,7 +355,7 @@
       }
 
       &__logo {
-        transform:translate(-5%, -290%) rotate(-90deg);
+        transform: translate(-5%, -290%) rotate(-90deg);
       }
 
       &__preview {
@@ -364,26 +364,32 @@
         height: 20%;
         object-fit: cover;
         display: block;
+
         &--1 {
           left: 20%;
           top: calc(20% + 20%);
         }
+
         &--2 {
           left: calc(20% + 20%);
           top: calc(20% + 20%);
         }
+
         &--3 {
           left: calc(20% + 20% + 20%);
           top: calc(20% + 20% + 20%);
         }
+
         &--4 {
           left: calc(20% + 20% + 20% + 20%);
           top: 20%;
         }
+
         &--5 {
           left: 0;
           top: 0;
         }
+
         &--6 {
           left: 20%;
           top: calc(20% + 20% + 20% + 20%);
@@ -400,6 +406,7 @@
     .news {
 
       @include grid;
+
       .vectors {
         display: flex;
       }
@@ -412,19 +419,20 @@
       &__second {
         display: inline-grid;
         grid-column: 5 / 9;
-      } 
-      
+      }
+
       &__third {
         display: inline-grid;
         grid-column: 9 / -1;
       }
-    
     }
 
     .footer {
       padding-bottom: 120px;
+
       &__top {
         align-items: center;
+
         &__square {
           grid-column: 1 / 2;
           display: flex;
@@ -434,6 +442,7 @@
           position: relative;
           flex: none;
         }
+
         &__square::before {
           content: "";
           position: absolute;
@@ -444,13 +453,16 @@
           height: 2px;
           background-color: $brand-white;
         }
+
         @include grid;
+
         .nav {
           display: flex;
           gap: 30px;
           grid-column: 2 / 8;
           @include menu-nav;
         }
+
         &__social {
           display: flex;
           align-items: center;
@@ -461,11 +473,13 @@
 
       &__buttom {
         @include grid;
+
         &__text {
           display: flex;
           gap: 30px;
           grid-column: 2 / 7;
         }
+
         &__rights {
           margin-left: 2rem;
           display: flex;
@@ -473,23 +487,6 @@
           grid-column: -1 / -5;
         }
       }
-      
-
     }
-
-
-
-
-
-    // .projects {
-    //   display: grid;
-    //   grid-template-rows: repeat(2, 1fr);
-    //   gap: 30px;
-    //   &__items {
-    //     display: grid;
-    //     grid-template-columns: repeat(8, 1fr);
-    //     gap: 30px;
-    //   }
-    // }
   }
 }

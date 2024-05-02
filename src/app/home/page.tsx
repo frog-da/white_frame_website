@@ -109,9 +109,9 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section className="gallery">
-                    <Gallery />
-                </section>
+          
+                <Gallery />
+             
 
                 <section className="news">
                     <div className="vectors">
