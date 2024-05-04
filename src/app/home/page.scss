@@ -3,16 +3,6 @@
 .home_page {
   display: inline-grid;
   gap: 6rem;
-  background-image: url('/background/pixels-1.svg'), 
-                    url('/background/pixels-2.svg'), 
-                    url('/background/pixels-3.svg'),
-                    url('/background/pixels-4.svg'),
-                    url('/background/pixels-5.svg'),
-                    url('/background/pixels-6.svg'),
-                    url('/background/blob-1.webp'), 
-                    url('/background/blob-2.webp');
-  background-repeat: no-repeat;
-  background-position: top right, top 14% left, top 69% left 35%, top 80% right, top 90% left, bottom left 60% ,top 4% left 30%, top 71% right;
 
   .header {
     @include grid;
@@ -172,6 +162,7 @@
           &:hover {
             color: $brand-green;
             border: 2px solid $brand-green;
+            cursor: url('/vectors/cursor.svg'), pointer !important;
           }
         }
       }
@@ -220,7 +211,7 @@
                 transform: translate(-50%, -50%) rotate(-45deg);
                 width: 30px;
                 height: 2px;
-                background-color: #000aff;
+                background-color: $brand-blue;
               }
 
               width: 100%;
@@ -270,6 +261,9 @@
               .projects__items__item__p {
                 color: $brand-blue;
               }
+
+              cursor: url('/vectors/cursor.svg'),
+              pointer !important;
             }
 
             &--gray {
@@ -340,6 +334,10 @@
         }
       }
 
+      &__btn:hover {
+        cursor: url('/vectors/cursor.svg'), pointer !important;
+      }
+
       &__container {
         display: flex;
         flex-direction: row;
@@ -399,7 +397,9 @@
       &__preview--active {
         outline: 4px solid $brand-green;
         outline-offset: -4px;
-
+      }
+      &__preview:hover {
+        cursor: url('/vectors/cursor.svg'), pointer !important;
       }
     }
 
@@ -468,6 +468,7 @@
           align-items: center;
           gap: 30px;
           grid-column: -1 / -3;
+          
         }
       }
 
@@ -489,4 +490,25 @@
       }
     }
   }
+
+  background-image: url('/background/pixels-1.svg'),
+  url('/background/pixels-2.svg'),
+  url('/background/pixels-3.svg'),
+  url('/background/pixels-4.svg'),
+  url('/background/pixels-5.svg'),
+  url('/background/pixels-6.svg'),
+  url('/background/blob-1.webp'),
+  url('/background/blob-2.webp'),
+  url('/background/text.webp');
+  background-repeat: no-repeat;
+  background-position: top right,
+  top 14% left,
+  top 69% left 35%,
+  top 80% right,
+  top 90% left,
+  bottom left 60%,
+  top 4% left 30%,
+  top 71% right,
+  top 2% left 80%;
+
 }
