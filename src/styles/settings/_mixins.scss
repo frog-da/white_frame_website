@@ -3,11 +3,8 @@
 @mixin grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  /* 12-column grid */
   column-gap: 30px;
   padding: 0 120px;
-  /* Default padding for tablet, desktop, widescreen, fullhd */
-
 }
 
 @mixin menu-nav {
